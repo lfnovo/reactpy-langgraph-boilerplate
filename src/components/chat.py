@@ -1,5 +1,5 @@
 from reactpy import component, html
-from ..styles.chat import chat_style_tag
+from ..utils.css_loader import load_css
 from ..hooks.use_chat import use_chat
 
 @component
@@ -22,7 +22,7 @@ def Chat():
 
     return html.div(
         {"class": "chat-container"},
-        chat_style_tag,
+        load_css('chat.css'),
         html.h2("Chat"),
         html.div(
             {"class": "messages-container"},

@@ -1,5 +1,5 @@
 from reactpy import component, html
-from ..styles.category import category_style_tag
+from ..utils.css_loader import load_css
 
 # Mock data - In a real app, this would come from a database or API
 mock_categories = [
@@ -28,7 +28,7 @@ def CategoryCard(category):
 def CategoryList():
     return html.div(
         {"class": "category-list"},
-        category_style_tag,
+        load_css('category.css'),
         html.h2("Categories"),
         html.div(
             {"class": "category-grid"},

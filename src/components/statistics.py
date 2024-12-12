@@ -1,5 +1,5 @@
 from reactpy import component, html
-from ..styles.statistics import statistics_style_tag
+from ..utils.css_loader import load_css
 
 # Mock data - In a real app, this would come from a database or API
 mock_data = {
@@ -15,7 +15,7 @@ def Statistics():
     
     return html.div(
         {"class": "statistics-container"},
-        statistics_style_tag,
+        load_css('statistics.css'),
         html.h2("Statistics"),
         html.div(
             {"class": "chart-container"},
