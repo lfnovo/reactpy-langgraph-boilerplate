@@ -1,0 +1,15 @@
+[project]
+name = "hello-world"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+dependencies = [
+    "flask>=3.1.0",
+    "reactpy[fastapi]>=1.1.0",
+    "matplotlib>=3.8.0",
+    "plotly>=5.18.0",
+]
+
+[tool.uv]
+python-version = "3.11"
+venv = ".venv"
