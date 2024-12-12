@@ -9,8 +9,13 @@ from .components.category import CategoryList
 from .components.chat import Chat
 from .utils.css_loader import load_css
 
-url = "https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
-pico_css = html.link({"rel": "stylesheet", "href": url})
+# Add Pico CSS with data-theme="dark"
+pico_css = [
+    html.link({"rel": "stylesheet", "href": "https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"}),
+    html.script("""
+        document.documentElement.setAttribute('data-theme', 'dark');
+    """)
+]
 
 @component
 def HabitCanvas():

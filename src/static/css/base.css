@@ -1,3 +1,19 @@
+:root {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --bg-component: #333333;
+    --text-primary: #ffffff;
+    --text-secondary: #e0e0e0;
+    --text-muted: #b0b0b0;
+    --accent-color: #61dafb;
+    --border-color: #404040;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -18,7 +34,18 @@
 }
 
 .right-column {
-    background-color: #f8f9fa;
+    background-color: var(--bg-secondary);
     border-radius: 8px;
     padding: 1rem;
+    border: 1px solid var(--border-color);
+}
+
+h1, h2, h3 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+h1 {
+    color: var(--accent-color);
+    font-size: 2rem;
 }

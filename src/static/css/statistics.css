@@ -1,8 +1,9 @@
 .statistics-container {
-    background: white;
+    background: var(--bg-component);
     padding: 1rem;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    border: 1px solid var(--border-color);
 }
 
 .chart-container {
@@ -11,8 +12,9 @@
     align-items: flex-end;
     height: 300px;
     padding: 20px;
-    background: white;
+    background: var(--bg-secondary);
     border-radius: 8px;
+    border: 1px solid var(--border-color);
 }
 
 .chart-column {
@@ -24,7 +26,7 @@
 
 .chart-bar {
     width: 40px;
-    background: #007bff;
+    background: var(--accent-color);
     border-radius: 4px 4px 0 0;
     transition: height 0.3s ease;
 }
@@ -33,9 +35,10 @@
     margin-top: 8px;
     text-align: center;
     font-size: 0.9rem;
+    color: var(--text-secondary);
 }
 
 .chart-label div:first-child {
     font-weight: bold;
-    color: #007bff;
+    color: var(--accent-color);
 }

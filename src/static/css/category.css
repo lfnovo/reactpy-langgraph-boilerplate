@@ -1,8 +1,9 @@
 .category-list {
-    background: white;
+    background: var(--bg-component);
     padding: 1rem;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    border: 1px solid var(--border-color);
 }
 
 .category-grid {
@@ -13,18 +14,26 @@
 }
 
 .category-card {
-    background: white;
+    background: var(--bg-secondary);
     padding: 1rem;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
 }
 
 .category-card h3 {
     margin: 0;
     font-size: 1.1rem;
+    color: var(--text-primary);
 }
 
 .category-card p {
     margin: 0.5rem 0 0 0;
-    color: #666;
+    color: var(--text-secondary);
 }
