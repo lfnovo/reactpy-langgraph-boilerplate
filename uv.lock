@@ -304,6 +304,7 @@ dependencies = [
     { name = "plotly" },
     { name = "reactpy", extra = ["fastapi"] },
     { name = "reactpy-apexcharts" },
+    { name = "reactpy-router" },
 ]
 
 [package.metadata]
@@ -315,6 +316,7 @@ requires-dist = [
     { name = "plotly", specifier = ">=5.18.0" },
     { name = "reactpy", extras = ["fastapi"], specifier = ">=1.1.0" },
     { name = "reactpy-apexcharts", specifier = ">=0.0.12" },
+    { name = "reactpy-router", specifier = ">=1.0.3" },
 ]
 
 [[package]]
@@ -1099,6 +1101,19 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/6e/66/f2778206e9f31c179afa30bc3ba1cec679a2d389d66bbcb49083b41623b5/reactpy_apexcharts-0.0.12.tar.gz", hash = "sha256:2a34c88a39415a1b92bba2c59753bb294355fdb9891122cd01d829516a562d66", size = 1552843 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/fd/c5/b892083cd65468d81d5df7fd27b8c51131a6c2d34cc38cb8bc3226a33f71/reactpy_apexcharts-0.0.12-py3-none-any.whl", hash = "sha256:baec728051a79c7358b231e7a59bdaa4328f634d9ab5460fce6e4cb82e990431", size = 1560106 },
+]
+
+[[package]]
+name = "reactpy-router"
+version = "1.0.3"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "reactpy" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/a9/3b/27997cde84fa31336db09a5a4fae1360e81dafe30959096d6887aa57dc77/reactpy_router-1.0.3.tar.gz", hash = "sha256:bc9cdf7a93d036ab62dbc288a823e4731ff6fa8722e7eb4c70fa9a854cf47fc1", size = 58888 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/cd/68/5c447c248fca2acf7516d75896d4dff3216ab90b56336a008344dccb4b90/reactpy_router-1.0.3-py3-none-any.whl", hash = "sha256:e20a942b2326b185f207c9fee3b6e4fab32816e4bf25f0a2457cc90c1d48e621", size = 22211 },
 ]
 
 [[package]]

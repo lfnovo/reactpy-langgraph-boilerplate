@@ -4,6 +4,7 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from reactpy import component, html
 from reactpy.backend.fastapi import configure
+from reactpy_router import browser_router, route
 
 from .components.category import CategoryList
 from .components.chat import Chat
@@ -72,11 +73,21 @@ def HabitCanvas():
             ),
         ),
     )
-    
+
+@component
+def root():
+    return browser_router(
+        route("/", HabitCanvas()),
+        route("{404:any}", html.h1("Missing Link 🔗‍💥")),
+    )
+
+       
 app = FastAPI()
+
 
 # Mount static files
 static_path = Path(__file__).parent / 'static'
 app.mount("/static", StaticFiles(directory=str(static_path)), name="static")
 
-configure(app, HabitCanvas)
+configure(app, root)
+configure(app, root)
