@@ -1,6 +1,6 @@
 from typing import Any, AsyncGenerator, Dict
 
-from reactpy_langgraph_boilerplate.backend.agent import graph
+from ...backend.agent import graph
 
 
 class APIClient:
