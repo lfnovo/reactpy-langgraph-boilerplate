@@ -303,6 +303,7 @@ dependencies = [
     { name = "matplotlib" },
     { name = "plotly" },
     { name = "reactpy", extra = ["fastapi"] },
+    { name = "reactpy-apexcharts" },
 ]
 
 [package.metadata]
@@ -313,6 +314,7 @@ requires-dist = [
     { name = "matplotlib", specifier = ">=3.8.0" },
     { name = "plotly", specifier = ">=5.18.0" },
     { name = "reactpy", extras = ["fastapi"], specifier = ">=1.1.0" },
+    { name = "reactpy-apexcharts", specifier = ">=0.0.12" },
 ]
 
 [[package]]
@@ -1085,6 +1087,18 @@ wheels = [
 fastapi = [
     { name = "fastapi" },
     { name = "uvicorn", extra = ["standard"] },
+]
+
+[[package]]
+name = "reactpy-apexcharts"
+version = "0.0.12"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "reactpy" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/6e/66/f2778206e9f31c179afa30bc3ba1cec679a2d389d66bbcb49083b41623b5/reactpy_apexcharts-0.0.12.tar.gz", hash = "sha256:2a34c88a39415a1b92bba2c59753bb294355fdb9891122cd01d829516a562d66", size = 1552843 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/fd/c5/b892083cd65468d81d5df7fd27b8c51131a6c2d34cc38cb8bc3226a33f71/reactpy_apexcharts-0.0.12-py3-none-any.whl", hash = "sha256:baec728051a79c7358b231e7a59bdaa4328f634d9ab5460fce6e4cb82e990431", size = 1560106 },
 ]
 
 [[package]]

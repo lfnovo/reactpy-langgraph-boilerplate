@@ -15,8 +15,8 @@ class ThreadState(BaseModel):
 async def get_stats(state: ThreadState, config: RunnableConfig) -> dict:
     # Calculate dates for mock data
     return {"statistics": {
-        'Month': ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
-        'Tasks': [23, 34, 45, 56, 43]
+        'month': ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+        'tasks': [23, 34, 45, 56, 43]
     },}
 
 
