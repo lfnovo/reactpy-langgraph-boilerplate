@@ -32,6 +32,11 @@ def CategoryList():
         html.h2("Categories"),
         html.div(
             {"class": "category-grid"},
-            [CategoryCard(category) for category in mock_categories]
+            [
+                html.div(
+                    {"key": f"category-{category['id']}"}, 
+                    CategoryCard(category)
+                ) for category in mock_categories
+            ]
         )
     )

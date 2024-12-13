@@ -26,7 +26,12 @@ def Chat():
         html.h2("Chat"),
         html.div(
             {"class": "messages-container"},
-            [ChatMessage(msg) for msg in messages]
+            [
+                html.div(
+                    {"key": f"message-{msg['id']}"}, 
+                    ChatMessage(msg)
+                ) for msg in messages
+            ]
         ),
         html.form(
             {
