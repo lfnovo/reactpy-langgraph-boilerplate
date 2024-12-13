@@ -33,8 +33,8 @@ initial_data = {
 
 # Add Pico CSS with data-theme="dark"
 pico_css = [
-    html.link({"rel": "stylesheet", "href": "https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"}),
-    html.script("""
+    html.link({"key": "pico-css", "rel": "stylesheet", "href": "https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"}),
+    html.script({"key": "theme-script"}, """
         document.documentElement.setAttribute('data-theme', 'dark');
     """)
 ]
@@ -57,7 +57,7 @@ def HabitCanvas():
         set_messages(messages + [new_message])
     
     return html.div({"class": "container"},
-        pico_css,
+        *pico_css,
         load_css('base.css'),
         html.h1("Canvas"),
         html.div({"class": "grid-container"},
