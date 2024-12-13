@@ -9,7 +9,7 @@
 
 ## Project Structure
 ```
-src/
+src/frontend/
   ├── components/      # ReactPy components
   ├── static/         # Static assets and CSS
   ├── utils/          # Utility functions
