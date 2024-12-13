@@ -8,8 +8,10 @@ dependencies = [
     "reactpy[fastapi]>=1.1.0",
     "matplotlib>=3.8.0",
     "plotly>=5.18.0",
+    "langgraph>=0.2.59",
+    "loguru>=0.7.3",
 ]
+requires-python = ">=3.11"
 
 [tool.uv]
-python-version = "3.11"
 venv = ".venv"
