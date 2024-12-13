@@ -1,5 +1,5 @@
 [project]
-name = "hello-world"
+name = "reactpy-langgraph-boilerplate"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"

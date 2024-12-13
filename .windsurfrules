@@ -1,0 +1,152 @@
+# ReactPy + LangGraph Boilerplate Architecture Guide
+
+## Tech Stack Overview
+- **Frontend**: ReactPy (Python-based React-like framework)
+- **Backend**: FastAPI
+- **Package Management**: uv (fast Python package installer)
+- **State Management**: LangGraph for async workflows
+- **CSS Framework**: PicoCSS for semantic styling
+
+## Project Structure
+```
+src/frontend/
+  ├── components/      # ReactPy components
+  ├── static/         # Static assets and CSS
+  ├── utils/          # Utility functions
+  └── main.py         # FastAPI application entry
+```
+
+## Component Architecture
+
+### Component Patterns
+1. **Function Components**
+   ```python
+   @component
+   def MyComponent(props):
+       return html.div({"class": "my-component"}, "content")
+   ```
+
+2. **State Management**
+   ```python
+   value, set_value = hooks.use_state(initial_value)
+   ```
+
+3. **Side Effects**
+   ```python
+   hooks.use_effect(callback_fn, dependencies_list)
+   ```
+
+### CSS Conventions
+- Base styles in `base.css`
+- Component-specific styles in dedicated CSS files
+- Use semantic class names
+- Follow BEM-like naming: `block__element--modifier`
+- Colors via CSS variables for theming
+
+### Component Guidelines
+1. Keep components small and focused
+2. Use hooks for state and effects
+3. Props should be explicit and typed
+4. CSS files match component names
+5. Avoid inline styles
+
+## State Management
+- Use `hooks.use_state()` for local component state
+- LangGraph for complex async workflows
+- State updates trigger re-renders automatically
+- Keep state as close as possible to where it's used
+
+## Effects and Lifecycle
+- `use_effect` for side effects (API calls, subscriptions)
+- Always cleanup subscriptions in effect returns
+- Dependencies list controls effect execution
+- Empty deps list = run once on mount
+
+## Styling Approach
+- PicoCSS for base semantic styles
+- Custom CSS for specific components
+- CSS variables for theming
+- Mobile-first responsive design
+- Avoid !important
+
+## Best Practices
+1. **Components**
+   - One component per file
+   - Clear prop interfaces
+   - Meaningful component names
+
+2. **State**
+   - Minimize state
+   - Lift state up when shared
+   - Use controlled components
+
+3. **Effects**
+   - Clear dependency lists
+   - Cleanup when needed
+   - Avoid infinite loops
+
+4. **Performance**
+   - Memoize expensive calculations
+   - Lazy load when possible
+   - Optimize re-renders
+
+## Common Patterns
+
+### Event Handling
+```python
+def handle_event(event):
+    event.preventDefault()
+    # Handle event
+
+@component
+def Button(on_click):
+    return html.button({"on_click": handle_event})
+```
+
+### Async Operations
+```python
+async def fetch_data():
+    # Fetch data
+    return data
+
+@component
+def DataComponent():
+    data, set_data = hooks.use_state(None)
+    
+    async def load():
+        result = await fetch_data()
+        set_data(result)
+    
+    hooks.use_effect(load, [])
+```
+
+### Forms
+```python
+@component
+def Form(on_submit):
+    value, set_value = hooks.use_state("")
+    
+    def handle_submit(event):
+        event.preventDefault()
+        on_submit(value)
+        set_value("")
+    
+    return html.form(
+        {"on_submit": handle_submit},
+        html.input({
+            "value": value,
+            "on_change": lambda e: set_value(e["target"]["value"])
+        })
+    )
+```
+
+## Development Workflow
+1. Create component file
+2. Write component function
+3. Add necessary hooks
+4. Create matching CSS file
+5. Import and use component
+6. Test functionality
+7. Optimize if needed
+
+Remember: ReactPy follows React patterns but in Python. Think React, write Python!

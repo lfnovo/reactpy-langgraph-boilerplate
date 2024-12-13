@@ -27,19 +27,23 @@ A modern, production-ready boilerplate for building reactive web applications us
 ### Project Structure
 ```
 src/
-├── components/          # Reusable UI components
-│   ├── category.py     # Category management
-│   ├── chat.py         # Chat interface
-│   └── statistics.py   # Data visualization
-├── hooks/              # Custom ReactPy hooks
-│   └── use_habits.py   # Data fetching and state management
-├── static/
-│   └── css/            # PicoCSS customization and component styles
-├── api/
-│   └── client.py       # API client with async streaming
-├── utils/              # Utility functions
-├── agent.py           # LangGraph setup and processing
-└── app.py             # Application entry point
+├── frontend/           # Frontend application
+│   ├── components/     # Reusable UI components
+│   │   ├── category.py # Category management
+│   │   ├── chat.py     # Chat interface
+│   │   └── statistics.py # Data visualization
+│   ├── api/           # Frontend API clients
+│   │   └── client.py   # API client with async streaming
+│   ├── static/        # Static assets
+│   │   └── css/       # PicoCSS customization and styles
+│   └── utils/         # Frontend utilities
+├── backend/           # Backend application
+│   ├── api/          # API endpoints and routes
+│   ├── models/       # Data models and schemas
+│   ├── services/     # Business logic and services
+│   ├── utils/        # Backend utilities
+│   └── agent.py      # LangGraph setup and processing
+└── app.py            # Application entry point
 ```
 
 ## 🚀 Getting Started
@@ -52,7 +56,7 @@ src/
 
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/reactpy-langgraph-boilerplate.git
+git clone https://github.com/lfnovo/reactpy-langgraph-boilerplate.git
 cd reactpy-langgraph-boilerplate
 ```
 
