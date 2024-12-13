@@ -26,7 +26,7 @@ def Statistics(data):
                 }],
                 chart_type="bar",
                 width="100%",
-                height=50
+                # height=50
             )
         )
     )

@@ -1,5 +1,7 @@
-from reactpy import component, html, hooks
+from reactpy import component, hooks, html
+
 from ..utils.css_loader import load_css
+
 
 @component
 def ChatMessage(message):
