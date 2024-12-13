@@ -1,35 +1,30 @@
 from reactpy import component, html
 from ..utils.css_loader import load_css
 
-# Mock data - In a real app, this would come from a database or API
-mock_data = {
-    'Month': ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
-    'Tasks': [23, 34, 45, 56, 43]
-}
-
 @component
-def Statistics():
-    # Calculate percentage for each value
-    max_value = max(mock_data['Tasks'])
-    percentages = [int((value / max_value) * 100) for value in mock_data['Tasks']]
-    
+def Statistics(data):
     return html.div(
         {"class": "statistics-container"},
         load_css('statistics.css'),
         html.h2("Statistics"),
         html.div(
             {"class": "chart-container"},
-            [
-                html.div(
-                    {"class": "chart-column"},
+            html.div(
+                {"class": "chart"},
+                [
                     html.div(
-                        {"class": "chart-bar", "style": {"height": f"{percentage}%"}},
-                    ),
-                    html.div({"class": "chart-label"}, 
-                        html.div(str(value)),
-                        html.div(month)
+                        {
+                            "class": "bar",
+                            "style": {
+                                "height": f"{(task / max(data['Tasks'])) * 100}%"
+                            },
+                            "key": f"bar-{i}"
+                        },
+                        html.div({"class": "task-count"}, str(task)),
+                        html.div({"class": "month"}, month)
                     )
-                ) for month, value, percentage in zip(mock_data['Month'], mock_data['Tasks'], percentages)
-            ]
+                    for i, (month, task) in enumerate(zip(data['Month'], data['Tasks']))
+                ]
+            )
         )
     )

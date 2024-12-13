@@ -1,15 +1,7 @@
 from reactpy import component, html
+
 from ..utils.css_loader import load_css
 
-# Mock data - In a real app, this would come from a database or API
-mock_categories = [
-    {"id": 1, "name": "Work", "color": "#FF6B6B", "count": 12},
-    {"id": 2, "name": "Personal", "color": "#4ECDC4", "count": 8},
-    {"id": 3, "name": "Health", "color": "#45B7D1", "count": 15},
-    {"id": 4, "name": "Learning", "color": "#96CEB4", "count": 6},
-    {"id": 5, "name": "Projects", "color": "#FFEEAD", "count": 10},
-    {"id": 6, "name": "Family", "color": "#D4A5A5", "count": 9},
-]
 
 @component
 def CategoryCard(category):
@@ -25,7 +17,7 @@ def CategoryCard(category):
     )
 
 @component
-def CategoryList():
+def CategoryList(categories):
     return html.div(
         {"class": "category-list"},
         load_css('category.css'),
@@ -36,7 +28,8 @@ def CategoryList():
                 html.div(
                     {"key": f"category-{category['id']}"}, 
                     CategoryCard(category)
-                ) for category in mock_categories
+                ) for category in categories
             ]
         )
     )
+

@@ -1,6 +1,5 @@
-from reactpy import component, html
+from reactpy import component, html, hooks
 from ..utils.css_loader import load_css
-from ..hooks.use_chat import use_chat
 
 @component
 def ChatMessage(message):
@@ -17,8 +16,14 @@ def ChatMessage(message):
     )
 
 @component
-def Chat():
-    messages, new_message, set_new_message, send_message = use_chat()
+def Chat(messages, on_new_message):
+    new_message, set_new_message = hooks.use_state("")
+
+    def handle_submit(event):
+        event.preventDefault()
+        if new_message.strip():
+            on_new_message(new_message)
+            set_new_message("")
 
     return html.div(
         {"class": "chat-container"},
@@ -36,7 +41,7 @@ def Chat():
         html.form(
             {
                 "class": "chat-form",
-                "on_submit": send_message
+                "on_submit": handle_submit
             },
             html.input({
                 "type": "text",
